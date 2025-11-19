@@ -1,5 +1,5 @@
 // =========================================
-// SCRIPT.JS - LOGIKA WEBSITE LENGKAP
+// SCRIPT.JS - LOGIKA WEBSITE LENGKAP (FINAL)
 // =========================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // =========================================
-// A. LOGIKA NAVIGASI (DROPDOWN KLIK)
+// A. LOGIKA NAVIGASI DESKTOP (DROPDOWN KLIK)
 // =========================================
 function toggleNavbar() {
     const menu = document.getElementById('navDropdown');
@@ -37,7 +37,20 @@ function toggleNavbar() {
 }
 
 // =========================================
-// B. LOGIKA TAB (KHUSUS HALAMAN INTI)
+// B. LOGIKA NAVIGASI MOBILE (HAMBURGER)
+// =========================================
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+    } else {
+        mobileMenu.classList.add('hidden');
+    }
+}
+
+// =========================================
+// C. LOGIKA TAB (KHUSUS HALAMAN INTI)
 // =========================================
 function openTab(tabName) {
     // 1. Sembunyikan SEMUA konten tab (OSIS, MPK, PKS)
@@ -75,7 +88,7 @@ function openTab(tabName) {
 }
 
 // =========================================
-// C. LOGIKA BUKA-TUTUP (ACCORDION - BIDANG)
+// D. LOGIKA BUKA-TUTUP (ACCORDION - BIDANG)
 // =========================================
 function toggleSection(id) {
     const section = document.getElementById(id);
@@ -93,32 +106,10 @@ function toggleSection(id) {
 }
 
 // =========================================
-// D. LOGIKA POPUP & KLIK LUAR
+// E. LOGIKA POPUP MODAL (LENGKAP DENGAN KELAS)
 // =========================================
 
-// Deteksi klik di seluruh layar
-window.onclick = function(event) {
-    // 1. Jika klik di luar Modal Popup -> Tutup Modal
-    const modal = document.getElementById('infoModal');
-    if (event.target == modal) {
-        closeModal();
-    }
-
-    // 2. Jika klik di luar Tombol Struktur -> Tutup Dropdown
-    // Cek apakah yang diklik BUKAN bagian dari tombol dropdown (.dropdown-trigger)
-    if (!event.target.closest('.dropdown-trigger')) {
-        const navDropdown = document.getElementById('navDropdown');
-        const navIcon = document.getElementById('navChevron');
-        
-        // Jika menu sedang terbuka, tutup paksa
-        if (navDropdown && navDropdown.classList.contains('active')) {
-            navDropdown.classList.remove('active');
-            if(navIcon) navIcon.style.transform = 'rotate(0deg)';
-        }
-    }
-}
-
-// Fungsi Buka Modal
+// 1. Fungsi Buka Modal
 function openModal(name, role, kelas, desc, imgUrl) {
     const modal = document.getElementById('infoModal');
     const content = document.getElementById('modalContent');
@@ -126,7 +117,13 @@ function openModal(name, role, kelas, desc, imgUrl) {
     // Isi Data ke Elemen HTML
     document.getElementById('modalName').innerText = name;
     document.getElementById('modalRole').innerText = role;
-    document.getElementById('modalClass').innerText = kelas;
+    
+    // Cek jika elemen modalClass ada (untuk menghindari error di halaman lain)
+    const classElement = document.getElementById('modalClass');
+    if (classElement) {
+        classElement.innerText = kelas; // Isi Teks Kelas
+    }
+
     document.getElementById('modalDesc').innerText = desc;
     document.getElementById('modalImg').src = imgUrl;
 
@@ -139,7 +136,7 @@ function openModal(name, role, kelas, desc, imgUrl) {
     }, 10);
 }
 
-// Fungsi Tutup Modal
+// 2. Fungsi Tutup Modal
 function closeModal() {
     const modal = document.getElementById('infoModal');
     const content = document.getElementById('modalContent');
@@ -152,4 +149,36 @@ function closeModal() {
     setTimeout(() => {
         modal.classList.add('hidden');
     }, 300);
+}
+
+// =========================================
+// F. GLOBAL CLICK HANDLER (KLIK DI LUAR)
+// =========================================
+window.onclick = function(event) {
+    // 1. Jika klik di luar Modal Popup -> Tutup Modal
+    const modal = document.getElementById('infoModal');
+    if (event.target == modal) {
+        closeModal();
+    }
+
+    // 2. Jika klik di luar Tombol Struktur -> Tutup Dropdown Desktop
+    if (!event.target.closest('.dropdown-trigger')) {
+        const navDropdown = document.getElementById('navDropdown');
+        const navIcon = document.getElementById('navChevron');
+        
+        // Jika menu sedang terbuka, tutup paksa
+        if (navDropdown && navDropdown.classList.contains('active')) {
+            navDropdown.classList.remove('active');
+            if(navIcon) navIcon.style.transform = 'rotate(0deg)';
+        }
+    }
+
+    // 3. Jika klik di luar Menu Mobile -> Tutup Menu Mobile
+    // Cek apakah klik BUKAN di tombol menu & BUKAN di dalam menu itu sendiri
+    if (!event.target.closest('button[onclick="toggleMobileMenu()"]') && !event.target.closest('#mobile-menu')) {
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+        }
+    }
 }
