@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur - Zelfonik Smansapura</title>
+    
+    <!-- Framework & Style (Wajib Copy) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50">
+ <nav class="fixed w-full z-50 top-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center text-white font-bold shadow-md">ZS</div>
+                <h1 class="font-bold text-slate-800 tracking-wide">ZELFONIK</h1>
+            </div>
+
+            <!-- Menu -->
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+                <a href="index.html" class="hover:text-blue-600 flex items-center gap-2 transition"><i data-lucide="home" class="w-4"></i> Beranda</a>
+                <a href="tentang.html" class="hover:text-blue-600 flex items-center gap-2 transition"><i data-lucide="info" class="w-4"></i> Tentang</a>
+                
+                <!-- DROPDOWN YANG BENAR (KLIK) -->
+                <!-- Perhatikan: class 'dropdown-trigger' dan onclick='toggleNavbar()' -->
+                <div class="relative dropdown-trigger">
+                    <button onclick="toggleNavbar()" class="text-blue-600 font-bold flex items-center gap-2 focus:outline-none hover:text-blue-800 transition">
+                        <i data-lucide="users" class="w-4"></i> Struktur 
+                        <i id="navChevron" data-lucide="chevron-down" class="w-3 transition-transform duration-300"></i>
+                    </button>
+                    
+                    <!-- Menu Isi -->
+                    <div id="navDropdown" class="dropdown-menu absolute left-0 mt-2 w-56 bg-white shadow-xl rounded-lg overflow-hidden border border-slate-100 z-50">
+                        <a href="struktur-inti.html" class="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 border-l-4 border-transparent hover:border-blue-600 transition">Pengurus Inti</a>
+                        <a href="struktur-bidang.html" class="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 border-l-4 border-transparent hover:border-blue-600 transition">Bidang OSIS</a>
+                        <a href="struktur-komisi.html" class="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 border-l-4 border-transparent hover:border-blue-600 transition">Komisi MPK</a>
+                    </div>
+                </div>
+
+                <a href="artikel.html" class="hover:text-blue-600 flex items-center gap-2 transition"><i data-lucide="newspaper" class="w-4"></i> Artikel</a>
+            </div>
+
+            <button onclick="alert('Fitur Login akan dibuat nanti')" class="bg-slate-800 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-blue-800 transition shadow-md">
+                Login Admin
+            </button>
+        </div>
+    </nav>
+
+    <!-- SUB-MENU (Sticky di bawah navbar) -->
+    <div class="fixed top-[72px] w-full bg-white border-b z-40 shadow-sm">
+        <div class="flex justify-center gap-2 md:gap-6 py-3 overflow-x-auto px-4">
+            <a href="#inti" class="px-5 py-2 bg-slate-100 hover:bg-slate-800 hover:text-white rounded-full text-sm font-medium transition whitespace-nowrap">Pengurus Inti</a>
+            <a href="#bidang" class="px-5 py-2 bg-slate-100 hover:bg-slate-800 hover:text-white rounded-full text-sm font-medium transition whitespace-nowrap">Bidang OSIS</a>
+            <a href="#komisi" class="px-5 py-2 bg-slate-100 hover:bg-slate-800 hover:text-white rounded-full text-sm font-medium transition whitespace-nowrap">Komisi MPK</a>
+        </div>
+    </div>
+
+    <main class="pt-40 pb-20 px-6 max-w-7xl mx-auto">
+
+        <!-- BAGIAN 1: PENGURUS INTI -->
+        <section id="inti" class="mb-24 scroll-mt-40 reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-800">Struktur INTI OMP Smansapura</h2>
+                <p class="text-slate-500">Masa Bakti 2025/2026</p>
+            </div>
+
+            <!-- GRID FOTO MEMBER -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- MEMBER 1: KETUA OSIS -->
+                <!-- Ubah data di dalam onlick="..." -->
+                <div onclick="openModal('Aditya Pratama', 'Ketua OSIS', 'Kelas XI MIPA 1. Hobi bermain basket dan berorganisasi.', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e')" 
+                     class="relative h-96 rounded-xl overflow-hidden cursor-pointer group shadow-lg bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <!-- Overlay Hitam di Bawah -->
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent pt-10 text-white">
+                        <h3 class="font-bold text-lg">Aditya Pratama</h3>
+                        <span class="inline-block bg-blue-600 text-[10px] px-2 py-1 rounded font-bold mt-1">KETUA OSIS</span>
+                    </div>
+                </div>
+
+                <!-- MEMBER 2: WAKIL KETUA -->
+                <div onclick="openModal('Siti Aminah', 'Wakil Ketua I', 'Kelas XI IPS 2. Sangat teliti dan disiplin.', 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80')" 
+                     class="relative h-96 rounded-xl overflow-hidden cursor-pointer group shadow-lg bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent pt-10 text-white">
+                        <h3 class="font-bold text-lg">Siti Aminah</h3>
+                        <span class="inline-block bg-blue-600 text-[10px] px-2 py-1 rounded font-bold mt-1">WAKIL KETUA I</span>
+                    </div>
+                </div>
+
+                <!-- Tambahkan Member Lain Copy Paste DIV di atas -->
+
+            </div>
+        </section>
+
+        <!-- BAGIAN 2: BIDANG OSIS -->
+        <section id="bidang" class="mb-24 scroll-mt-40 reveal pt-10 border-t">
+            <h2 class="text-3xl font-bold text-slate-800 mb-8 text-center">Bidang-Bidang OSIS</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Bidang 1 -->
+                <!-- Klik bidang ini juga bisa membuka popup jika mau, atau biarkan hanya teks -->
+                <div class="bg-white p-6 rounded-xl shadow border hover:border-blue-600 hover:shadow-lg transition cursor-pointer group">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-600 group-hover:bg-blue-600 group-hover:text-white transition">1</span>
+                        <i data-lucide="chevron-right" class="text-slate-300 group-hover:text-blue-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800">Ketaqwaan & Akhlak Mulia</h3>
+                    <p class="text-sm text-slate-500 mt-2">Bertanggung jawab atas kegiatan keagamaan.</p>
+                </div>
+
+                <!-- Bidang 2 -->
+                <div class="bg-white p-6 rounded-xl shadow border hover:border-blue-600 hover:shadow-lg transition cursor-pointer group">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-600 group-hover:bg-blue-600 group-hover:text-white transition">2</span>
+                        <i data-lucide="chevron-right" class="text-slate-300 group-hover:text-blue-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800">Budi Pekerti Luhur</h3>
+                    <p class="text-sm text-slate-500 mt-2">Menjaga tata tertib dan sopan santun siswa.</p>
+                </div>
+
+                <!-- Copy paste untuk Bidang 3-12 -->
+            </div>
+        </section>
+
+        <!-- BAGIAN 3: KOMISI MPK -->
+        <section id="komisi" class="mb-24 scroll-mt-40 reveal pt-10 border-t">
+            <h2 class="text-3xl font-bold text-slate-800 mb-8 text-center">Komisi MPK</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Komisi A -->
+                <div class="bg-white p-6 rounded-xl shadow border hover:border-emerald-600 hover:shadow-lg transition cursor-pointer group">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="w-8 h-8 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition">A</span>
+                        <i data-lucide="chevron-right" class="text-slate-300 group-hover:text-emerald-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800">Komisi A: Regulasi</h3>
+                    <p class="text-sm text-slate-500 mt-2">Mengawasi perumusan aturan dan AD/ART.</p>
+                </div>
+                
+                <!-- Copy paste untuk Komisi Lain -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL POPUP (Tempat Muncul Detail Member) -->
+    <!-- Ini disembunyikan (hidden), akan muncul lewat JS -->
+    <div id="infoModal" class="fixed inset-0 z-[100] bg-black/80 hidden flex items-center justify-center backdrop-blur-sm p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-xl w-full max-w-3xl flex flex-col md:flex-row overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300" id="modalContent">
+            
+            <!-- Foto di Modal -->
+            <div class="w-full md:w-2/5 h-64 md:h-auto bg-slate-200 relative">
+                <img id="modalImg" src="" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+            
+            <!-- Teks di Modal -->
+            <div class="w-full md:w-3/5 p-8 relative">
+                <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-red-500"><i data-lucide="x"></i></button>
+                
+                <span id="modalRole" class="text-xs font-bold text-blue-600 tracking-widest uppercase bg-blue-50 px-2 py-1 rounded">JABATAN</span>
+                <h2 id="modalName" class="text-3xl font-bold text-slate-800 mt-2 mb-4">Nama Lengkap</h2>
+                
+                <div class="h-1 w-12 bg-slate-200 mb-6"></div>
+                
+                <p id="modalDesc" class="text-slate-600 leading-relaxed">
+                    Deskripsi lengkap tentang pengurus ini akan muncul di sini.
+                </p>
+            </div>
+        </div>
+    </div>
+
+       <!-- E. FOOTER (BAGIAN BAWAH) -->
+    <footer class="bg-slate-900 text-white py-10 border-t-4 border-blue-600">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-center md:text-left">
+                <h3 class="font-bold text-xl tracking-wide">ZELFONIK SMANSAPURA</h3>
+                <p class="text-slate-400 text-sm mt-1">Kerja Keras, Kerja Ikhlas, Mandiri, Bisa!</p>
+            </div>
+            <div class="text-center md:text-right text-slate-500 text-sm">
+                <p>&copy; COPYRIGHT 2025 | Zelfonik Smansapura</p>
+                <p>Developed by Zelfonik</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- UPDATE SCRIPT! (Wajib) -->
+    <script src="script.js"></script>
+</body>
+</html>

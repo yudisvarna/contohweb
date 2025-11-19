@@ -1,0 +1,84 @@
+/* =========================================
+   STYLE.CSS - VERSI TERBARU (FIX DROPDOWN)
+   ========================================= */
+
+/* 1. PENGATURAN GLOBAL */
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden; /* Mencegah geser ke samping di HP */
+    background-color: #f8fafc; /* Warna latar belakang (Slate-50) */
+}
+
+/* 2. NAVIGASI (Efek Kaca Permanen) */
+nav {
+    background-color: rgba(255, 255, 255, 0.95) !important; /* Putih transparan */
+    backdrop-filter: blur(10px); /* Efek blur */
+    border-bottom: 1px solid rgba(0,0,0,0.05); /* Garis tipis */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* Bayangan halus */
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* 3. SCROLLBAR CUSTOM */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #1e293b;
+}
+
+/* 4. ANIMASI MUNCUL (Scroll Reveal) */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 5. ANIMASI TEKS HERO (Beranda) */
+.hero-anim {
+    animation: slideUp 1.2s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 6. EFEK HOVER KARTU (Zoom Gambar) */
+.group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+}
+
+/* 7. DROPDOWN MENU (LOGIKA KLIK) - BAGIAN PENTING */
+/* Perhatikan: Tidak ada lagi kode :hover disini */
+.dropdown-menu {
+    opacity: 0;
+    visibility: hidden; /* Wajib ada agar tidak bisa diklik saat sembunyi */
+    transform: translateY(10px); /* Posisi sedikit turun */
+    transition: all 0.3s ease; /* Animasi halus */
+}
+
+/* Menu HANYA muncul jika ada kelas '.active' (ditambah oleh JS saat diklik) */
+.dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Posisi naik ke normal */
+}
+
+/* 8. ROTASI PANAH */
+/* Kelas ini juga ditambahkan oleh JS saat menu aktif */
+.chevron-rotate {
+    transform: rotate(180deg);
+}

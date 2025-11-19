@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" href="FOTO/zelfonik logo chrome png.png">
+    
+    <!-- 1. FRAMEWORK TAMPILAN (TAILWIND CSS) - Wajib ada -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 2. ICON (LUCIDE) - Agar ada logo rumah, orang, dll -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- 3. FONT (POPPINS) - Agar tulisan estetik -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 4. CSS KITA SENDIRI - Menghubungkan ke file style.css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50">
+
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center text-white font-bold shadow-md"><img src="FOTO/zelfonik logo chrome png.png" alt="Z"></div>
+                <h1 class="font-bold text-slate-800 tracking-wide">ZELFONIK</h1>
+            </div>
+
+            <!-- Menu -->
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+                <a href="index.html" class="text-blue-600 font-bold flex items-center gap-2 transition"><i data-lucide="home" class="w-4"></i> Beranda</a>
+                <a href="tentang.html" class="hover:text-blue-600 flex items-center gap-2 transition"><i data-lucide="info" class="w-4"></i> Tentang</a>
+                
+                <!-- DROPDOWN YANG BENAR (KLIK) -->
+                <!-- Perhatikan: class 'dropdown-trigger' dan onclick='toggleNavbar()' -->
+                <div class="relative dropdown-trigger">
+                    <button onclick="toggleNavbar()" class="hover:text-blue-600 flex items-center gap-2 focus:outline-none hover:text-blue-800 transition">
+                        <i data-lucide="users" class="w-4"></i> Struktur 
+                        <i id="navChevron" data-lucide="chevron-down" class="w-3 transition-transform duration-300"></i>
+                    </button>
+                    
+                    <!-- Menu Isi -->
+                    <div id="navDropdown" class="dropdown-menu absolute left-0 mt-2 w-56 bg-white shadow-xl rounded-lg overflow-hidden border border-slate-100 z-50">
+                        <a href="struktur-inti.html" class="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 border-l-4 border-transparent hover:border-blue-600 transition">Pengurus Inti</a>
+                        <a href="struktur-bidang.html" class="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 border-l-4 border-transparent hover:border-blue-600 transition">Bidang OSIS</a>
+                        <a href="struktur-komisi.html" class="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 border-l-4 border-transparent hover:border-blue-600 transition">Komisi MPK</a>
+                    </div>
+                </div>
+
+                <a href="artikel.html" class="hover:text-blue-600 flex items-center gap-2 transition"><i data-lucide="newspaper" class="w-4"></i> Artikel</a>
+            </div>
+
+            <button onclick="alert('Fitur Login akan dibuat nanti')" class="bg-slate-800 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-blue-800 transition shadow-md">
+                Login Admin
+            </button>
+        </div>
+    </nav>
+
+    <!-- B. HERO SECTION (GAMBAR UTAMA) -->
+    <header class="h-screen relative flex items-center justify-center overflow-hidden">
+        <!-- GANTI GAMBAR SEKOLAH DI SINI (src="...") -->
+        <img src="FOTO/HERO.png" class="absolute w-full h-full object-cover brightness-50">
+        
+        <div class="relative z-10 text-center text-white px-4 hero-anim">
+            <div class="mb-6 flex justify-center">
+                <div class="w-28 h-28 flex items-center justify-center text-4xl font-bold backdrop-blur-sm"><img src="FOTO/zelfonik logo chrome png.png" alt=""></div>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight drop-shadow-lg">ZELFONIK SMANSAPURA</h1>
+            <p class="text-xl font-light mb-8 text-slate-200">Selamat datang di website resmi Zelfonik Smansapura!</p>
+            
+            <!-- Panah Bouncing -->
+            <div class="animate-bounce mt-10">
+                <i data-lucide="chevron-down" class="w-10 h-10 mx-auto text-white/80"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- C. SECTION TENTANG KAMI (Preview) -->
+    <section class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center reveal">
+            
+            <!-- Teks Kiri -->
+            <div>
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="h-1 w-10 bg-blue-600"></div>
+                    <span class="text-blue-600 font-bold tracking-widest text-sm uppercase">Tentang Zelfonik</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">Kerja Keras, Kerja Ikhlas, Mandiri, Bisa.</h2>
+                <p class="text-slate-600 mb-8 leading-relaxed text-lg">
+                    Zelfonik Smansapura hadir sebagai wadah aspirasi siswa yang mengutamakan integritas. Kami percaya bahwa kepemimpinan bukan tentang memerintah, tapi tentang melayani dan menginspirasi.
+                </p>
+                <a href="tentang.html" class="inline-flex items-center gap-2 text-slate-800 font-bold border-b-2 border-slate-800 pb-1 hover:text-blue-600 hover:border-blue-600 transition">
+                    Baca Selengkapnya <i data-lucide="arrow-right" class="w-4"></i>
+                </a>
+            </div>
+
+            <!-- Gambar Kanan -->
+            <div class="relative group">
+                <div class="absolute inset-0 bg-blue-600 rounded-2xl transform rotate-3 group-hover:rotate-6 transition opacity-20"></div>
+                <img src="FOTO/IMG_0464.JPG" class="relative rounded-2xl shadow-2xl w-full object-cover transform transition group-hover:-translate-y-2 duration-500">
+            </div>
+        </div>
+    </section>
+
+    <!-- D. SECTION ARTIKEL (Preview) -->
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold text-slate-800 mb-4">Kegiatan Terbaru</h2>
+                <p class="text-slate-500">Dokumentasi kegiatan OSIS & MPK masa bakti 2025/2026</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- KARTU ARTIKEL 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 group cursor-pointer reveal">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded mb-3 inline-block">12 JAN 2026</span>
+                        <h3 class="font-bold text-xl text-slate-800 mb-2 group-hover:text-blue-600 transition">LDKS Angkatan 2026</h3>
+                        <p class="text-slate-500 text-sm line-clamp-2 mb-4">Kegiatan pelatihan kepemimpinan untuk calon pengurus baru...</p>
+                        <a href="artikel.html" class="text-sm font-bold text-slate-800 flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Lihat Detail <i data-lucide="arrow-right" class="w-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- KARTU ARTIKEL 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 group cursor-pointer reveal" style="transition-delay: 100ms;">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1511886929837-354d827aae26" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded mb-3 inline-block">20 DES 2025</span>
+                        <h3 class="font-bold text-xl text-slate-800 mb-2 group-hover:text-blue-600 transition">Class Meeting Seru</h3>
+                        <p class="text-slate-500 text-sm line-clamp-2 mb-4">Pertandingan persahabatan antar kelas pasca ujian semester...</p>
+                        <a href="artikel.html" class="text-sm font-bold text-slate-800 flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Lihat Detail <i data-lucide="arrow-right" class="w-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- KARTU ARTIKEL 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 group cursor-pointer reveal" style="transition-delay: 200ms;">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded mb-3 inline-block">10 NOV 2025</span>
+                        <h3 class="font-bold text-xl text-slate-800 mb-2 group-hover:text-blue-600 transition">Bakti Sosial</h3>
+                        <p class="text-slate-500 text-sm line-clamp-2 mb-4">Berbagi kebahagiaan bersama anak yatim di panti asuhan...</p>
+                        <a href="artikel.html" class="text-sm font-bold text-slate-800 flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Lihat Detail <i data-lucide="arrow-right" class="w-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E. FOOTER (BAGIAN BAWAH) -->
+    <footer class="bg-slate-900 text-white py-10 border-t-4 border-blue-600">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-center md:text-left">
+                <h3 class="font-bold text-xl tracking-wide">ZELFONIK SMANSAPURA</h3>
+                <p class="text-slate-400 text-sm mt-1">Kerja Keras, Kerja Ikhlas, Mandiri, Bisa!</p>
+            </div>
+            <div class="text-center md:text-right text-slate-500 text-sm">
+                <p>&copy; COPYRIGHT 2025 | Zelfonik Smansapura</p>
+                <p>Developed by Zelfonik</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MENGHUBUNGKAN KE SCRIPT JS -->
+    <script src="script.js"></script>
+</body>
+</html>

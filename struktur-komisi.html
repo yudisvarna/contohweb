@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komisi MPK - Zelfonik</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50">
+
+ <nav class="fixed w-full z-50 top-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center text-white font-bold shadow-md"><img src="FOTO/zelfonik logo chrome png.png" alt="Z"></div>
+                <h1 class="font-bold text-slate-800 tracking-wide">ZELFONIK</h1>
+            </div>
+
+            <!-- Menu -->
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+                <a href="index.html" class="hover:text-blue-600 flex items-center gap-2 transition"><i data-lucide="home" class="w-4"></i> Beranda</a>
+                <a href="tentang.html" class="hover:text-blue-600 flex items-center gap-2 transition"><i data-lucide="info" class="w-4"></i> Tentang</a>
+                
+                <!-- DROPDOWN YANG BENAR (KLIK) -->
+                <!-- Perhatikan: class 'dropdown-trigger' dan onclick='toggleNavbar()' -->
+                <div class="relative dropdown-trigger">
+                    <button onclick="toggleNavbar()" class="text-blue-600 font-bold flex items-center gap-2 focus:outline-none hover:text-blue-800 transition">
+                        <i data-lucide="users" class="w-4"></i> Struktur 
+                        <i id="navChevron" data-lucide="chevron-down" class="w-3 transition-transform duration-300"></i>
+                    </button>
+                    
+                    <!-- Menu Isi -->
+                    <div id="navDropdown" class="dropdown-menu absolute left-0 mt-2 w-56 bg-white shadow-xl rounded-lg overflow-hidden border border-slate-100 z-50">
+                        <a href="struktur-inti.html" class="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 border-l-4 border-transparent hover:border-blue-600 transition">Pengurus Inti</a>
+                        <a href="struktur-bidang.html" class="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 border-l-4 border-transparent hover:border-blue-600 transition">Bidang OSIS</a>
+                        <a href="struktur-komisi.html" class="block px-4 py-3 hover:bg-blue-50 hover:text-blue-600 border-l-4 border-transparent hover:border-blue-600 transition">Komisi MPK</a>
+                    </div>
+                </div>
+
+                <a href="artikel.html" class="hover:text-blue-600 flex items-center gap-2 transition"><i data-lucide="newspaper" class="w-4"></i> Artikel</a>
+            </div>
+
+            <button onclick="alert('Fitur Login akan dibuat nanti')" class="bg-slate-800 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-blue-800 transition shadow-md">
+                Login Admin
+            </button>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 max-w-5xl mx-auto">
+        <div class="text-center mb-16 reveal">
+            <h1 class="text-4xl font-bold text-slate-900">Komisi MPK</h1>
+            <p class="text-slate-500 mt-2">Pengawas Kinerja OSIS</p>
+        </div>
+
+        <!-- ============ KOMISI A ============ -->
+        <div class="mb-6 bg-white rounded-xl shadow-md overflow-hidden reveal">
+            <!-- HEADER -->
+            <div onclick="toggleSection('komisiA')" class="p-6 flex justify-between items-center cursor-pointer hover:bg-slate-50 transition">
+                <div class="flex items-center gap-4">
+                    <!-- Huruf A -->
+                    <div class="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold">A</div>
+                    <h2 class="text-xl font-bold text-slate-800">Komisi A: Regulasi & AD/ART</h2>
+                </div>
+                <i id="icon-komisiA" data-lucide="chevron-down" class="transition-transform duration-300"></i>
+            </div>
+
+            <!-- ANGGOTA -->
+            <div id="komisiA" class="hidden bg-slate-50 p-6 border-t border-slate-100">
+                <p class="text-slate-500 mb-6 italic">"Mengawasi aturan, hukum, dan persidangan MPK."</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Anggota -->
+                    <div onclick="openModal('Rina W.', 'Ketua Komisi A', 'Kelas XI.', 'https://images.unsplash.com/photo-1494790108377-be9c29b29330')" 
+                         class="bg-white rounded-lg shadow p-2 cursor-pointer hover:shadow-lg transition text-center">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" class="w-full h-32 object-cover rounded mb-2">
+                        <p class="font-bold text-sm">Rina W.</p>
+                        <p class="text-[10px] text-emerald-600">KETUA KOMISI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Buat Komisi B, C, dst dengan cara Copy Paste blok di atas -->
+
+    </main>
+
+    <!-- POPUP MODAL (Sama) -->
+    <div id="infoModal" class="fixed inset-0 z-[100] bg-black/80 hidden flex items-center justify-center backdrop-blur-sm p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-xl w-full max-w-3xl flex flex-col md:flex-row overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300" id="modalContent">
+            <div class="w-full md:w-2/5 h-64 md:h-auto bg-slate-200 relative"><img id="modalImg" src="" class="absolute inset-0 w-full h-full object-cover"></div>
+            <div class="w-full md:w-3/5 p-8 relative">
+                <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-red-500"><i data-lucide="x"></i></button>
+                <span id="modalRole" class="text-xs font-bold text-blue-600 tracking-widest uppercase bg-blue-50 px-2 py-1 rounded">JABATAN</span>
+                <h2 id="modalName" class="text-3xl font-bold text-slate-800 mt-2 mb-4">Nama</h2>
+                <p id="modalDesc" class="text-slate-600 leading-relaxed">Deskripsi...</p>
+            </div>
+        </div>
+    </div>
+               <!-- E. FOOTER (BAGIAN BAWAH) -->
+    <footer class="bg-slate-900 text-white py-10 border-t-4 border-blue-600">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-center md:text-left">
+                <h3 class="font-bold text-xl tracking-wide">ZELFONIK SMANSAPURA</h3>
+                <p class="text-slate-400 text-sm mt-1">Kerja Keras, Kerja Ikhlas, Mandiri, Bisa!</p>
+            </div>
+            <div class="text-center md:text-right text-slate-500 text-sm">
+                <p>&copy; COPYRIGHT 2025 | Zelfonik Smansapura</p>
+                <p>Developed by Zelfonik</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
